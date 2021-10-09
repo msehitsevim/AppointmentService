@@ -1,0 +1,62 @@
+﻿@model Appointment.ViewModels.PatientControlModel
+@addTagHelper *,Microsoft.AspCore.Mvc.TagHelpers
+<form id="appForm" method="post">
+    <div class="col-sm-12 row">
+
+        <div class="col-sm-4">
+            <h3>Patient INFO</h3>
+
+            <input asp-for="@Model.patientModel.Id" id="patientId" hidden />
+            <br />
+            <input asp-for="@Model.patientModel.IdentityNumber" />
+            <br />
+            <input asp-for="@Model.patientModel.Name" />
+            <br />
+            <input asp-for="@Model.patientModel.Surname" />
+            <br />
+            <input asp-for="@Model.patientModel.Age" />
+            <br />
+            <input asp-for="@Model.patientModel.Address" />
+            <br />
+            <input asp-for="@Model.patientModel.Telephone" />
+            <br />
+
+        </div>
+
+        <div class="col-sm-8">
+            <h3>Appointment INFO</h3>
+            @if (Model != null && Model.appointmentModel != null)
+            {
+                @for (int i = 0; i < Model.appointmentModel.Count; i++)
+                {
+
+                    <div class="col-sm-12 row">
+                        <input asp-for="@Model.appointmentModel[i].Id" hidden>
+                        <input asp-for="@Model.appointmentModel[i].PatientId" hidden>
+                        <input type="date" asp-for="@Model.appointmentModel[i].AppointmentDate">
+                        <input type="time" asp-for="@Model.appointmentModel[i].BeginTime">
+                        <input type="time" asp-for="@Model.appointmentModel[i].EndTime">
+                        <input type="text" asp-for="@Model.appointmentModel[i].MedicalServicesId">
+                        <a class="btn btn-danger" asp-controller="Home" asp-action="DeleteAppointment" asp-route-id="@Model.appointmentModel[i].Id">Delete</a>
+                    </div>
+                }
+                
+            }
+        </div>
+    </div>
+    <div class="col-sm-12 text-center">
+        <input type="submit" class="btn-danger col-sm-4" id="replaceAppointment" value="ReplaceInfo">
+    </div>
+</form>
+<div class="col-sm-12 text-center">
+    <button type="submit" id="addButton" class="btn-dark col-sm-4">Add Appointment</button>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $('#addButton').click(function () {
+        var Id = $('#patientId').val();
+        window.location.href = "/Home/AddAppointment?Id=" + Id;
+    })
+
+</script>

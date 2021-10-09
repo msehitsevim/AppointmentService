@@ -1,0 +1,40 @@
+﻿@model Appointment.Models.PatientModel
+@{
+    ViewData["Title"] = "Save Patient";
+}
+<div class="text-center ">
+    <h3>Add Patient</h3>
+  
+    <div class="row  col-sm-12" style="margin-bottom:10%">
+        <div class="col-sm-2 form-group">
+            <input class="col-sm-12 form-control" type="number" placeholder="IdentityNumber" id="IdentityNumber" required />
+        </div>
+        <div class="invalid-feedback">
+            Please choose a username.
+        </div>
+        <div class="col-sm-2 form-group">
+            <input class="col-sm-12 form-control" type="text" placeholder="Name" id="Name" required />
+        </div>
+        <div class="col-sm-2 form-group">
+            <input class="col-sm-12 form-control" type="text" placeholder="Surname" id="Surname" required />
+        </div>
+        <div class="col-sm-2 form-group">
+            <input class="col-sm-12 form-control" type="number" placeholder="Age" id="Age" required />
+        </div>
+        <div class="col-sm-2 form-group">
+            <input class="col-sm-12 form-control" type="text" placeholder="Address" id="Address" required />
+        </div>
+        <div class="col-sm-2 form-group">
+            <input class="col-sm-12 form-control" type="text" placeholder="Telephone" id="Telephone" required />
+        </div>
+
+    </div>
+    <div class="col-sm-12 form-group">
+      
+        <button class="btn-danger col-sm-6 form-control" id="PatientSave">Save&Continue</button>
+    </div>
+
+
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="~/js/SavePatient.js"></script>

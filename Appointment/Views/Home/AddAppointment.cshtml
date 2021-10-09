@@ -1,0 +1,37 @@
+﻿@model Appointment.ViewModels.AddAppointmentModel
+
+    <h2>Add Appointment</h2>
+    <div class="row col-sm-4" id="AppointmentCol">
+        <div class="col-sm-12 row">
+            <div class="col-sm-12 row">
+                <label>Date</label>
+                <input class="form-control" type="date" id="AppointmentDate" />
+            </div>
+            <div class="col-sm-12 row">
+                <label>Begin-Time</label>
+                <input type="time" id="BeginTime" class="form-control">
+            </div>
+            <div class="col-sm-12 row">
+                <label>End-Time</label>
+                <input type="time" id="EndTime" class="form-control">
+            </div>
+            <div class="col-sm-12 row">
+                <label>Services </label>
+                <div class="checkbox" id="checkedServices">
+                    @foreach (var item in Model.medicalServicesModel)
+                    {
+                        <label><input id="cBox" type="checkbox" value="@item.ServiceName">@item.ServiceName</label>
+                    }
+                </div>
+
+            </div>
+        </div>
+        <input hidden value="@Model.patientModel.Id" id="pId" />
+        <input hidden value="@Model.patientModel.IdentityNumber" id="IdentityNumber" />
+        <div class="col-sm-12 row text-center form-group">
+            <button class="btn-danger col-sm-12 form-control" type="submit" id="AppointmentSave">Save Appointment</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+<script type="text/javascript" src="~/js/AddAppointment.js"></script>
